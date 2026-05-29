@@ -6,8 +6,19 @@ on:
       - main
   workflow_dispatch:
 
+# Permisos necesarios para GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite un despliegue concurrente a la vez para evitar colisiones
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,29 +39,18 @@ jobs:
         run: |
           npm run build
 
-      # ==========================================
-      # OPCIÓN A: Despliegue en Cloudflare Pages (Recomendado)
-      # ==========================================
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'difunde-landing' # Cambiar por tu nombre de proyecto en Cloudflare
-          directory: 'dist'
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          path: dist
 
-      # ==========================================
-      # OPCIÓN B (Alternativa): Despliegue en Servidor Propio (VPS vía SSH / rsync)
-      # Para usar esta opción, descomenta los siguientes pasos y comenta la opción A.
-      # Asegúrate de configurar los secretos correspondientes en GitHub (Settings > Secrets and variables > Actions)
-      # ==========================================
-      # - name: Deploy to VPS via SSH / rsync
-      #   uses: easingthemes/ssh-deploy@main
-      #   with:
-      #     SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
-      #     ARGS: "-rlgoDzvc --delete"
-      #     SOURCE: "dist/"
-      #     REMOTE_HOST: ${{ secrets.VPS_HOST }}      # ej: difunde.co o IP del servidor
-      #     REMOTE_USER: ${{ secrets.VPS_USER }}      # ej: root o ubuntu
-      #     TARGET: ${{ secrets.VPS_TARGET_DIR }}    # ej: /var/www/difunde.co/public_html
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
