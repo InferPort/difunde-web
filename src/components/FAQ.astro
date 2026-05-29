@@ -9,8 +9,8 @@ const preguntas = [
     answer: "Sí. Puedes usar solo WhatsApp, solo Email, o ambos. Cada canal se configura de forma independiente. Las automatizaciones y campañas multicanal son opcionales."
   },
   {
-    question: "¿Cómo funciona el multi-tenancy?",
-    answer: "Cada empresa (tenant) tiene sus propios datos, contactos, plantillas y configuración completamente aislados. La plataforma detecta automáticamente qué tenant está accediendo mediante el subdominio. Ideal para agencias que gestionan múltiples marcas o empresas con varias unidades de negocio."
+    question: "¿Cuánto tiempo toma empezar a usar Difunde?",
+    answer: "En menos de una hora puedes tener tu cuenta activa. El proceso de configuración inicial incluye la conexión con WhatsApp Business API (nosotros te guiamos paso a paso), la verificación de tu número de teléfono y la importación de tus primeros contactos. Para planes Enterprise, la implementación completa con integraciones personalizadas se realiza en días."
   },
   {
     question: "¿Ofrecen período de prueba gratuito?",
@@ -21,8 +21,8 @@ const preguntas = [
     answer: "Sí. Los planes Pro y Enterprise incluyen acceso a la API REST con autenticación por API Key. Puedes enviar mensajes, consultar estados y gestionar conversaciones desde cualquier sistema externo. Para Enterprise ofrecemos integración personalizada."
   },
   {
-    question: "¿Qué es el hash chain de auditoría?",
-    answer: "Cada acción crítica (creación de usuarios, cambios de configuración, envío de campañas) se registra con un hash SHA-256 que depende del registro anterior. Si alguien modifica o elimina un log, la cadena se rompe y el sistema lo detecta al instante. Es una garantía criptográfica de integridad, no solo un log tradicional."
+    question: "¿Mis datos están seguros en Difunde?",
+    answer: "Sí. Implementamos cifrado en tránsito y en reposo, aislamiento completo de datos por cliente y un sistema de auditoría criptográfico que garantiza que ningún registro pueda ser alterado sin ser detectado. Todos los datos se almacenan en infraestructura cloud con certificaciones de seguridad. Estamos alineados con estándares GDPR y SOC 2."
   }
 ];
 ---
@@ -80,14 +80,14 @@ const preguntas = [
 
       <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal reveal-delay-2">
         <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Cómo funciona el multi-tenancy?
+          ¿Cuánto tiempo toma empezar a usar Difunde?
           <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </summary>
         <div>
           <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            Cada empresa (tenant) tiene sus propios datos, contactos, plantillas y configuración completamente aislados. La plataforma detecta automáticamente qué tenant está accediendo mediante el subdominio. Ideal para agencias que gestionan múltiples marcas o empresas con varias unidades de negocio.
+            En menos de una hora puedes tener tu cuenta activa. El proceso de configuración inicial incluye la conexión con WhatsApp Business API (nosotros te guiamos paso a paso), la verificación de tu número de teléfono y la importación de tus primeros contactos. Para planes Enterprise, la implementación completa con integraciones personalizadas se realiza en días.
           </div>
         </div>
       </details>
@@ -122,14 +122,14 @@ const preguntas = [
 
       <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal reveal-delay-5">
         <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Qué es el hash chain de auditoría?
+          ¿Mis datos están seguros en Difunde?
           <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </summary>
         <div>
           <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            Cada acción crítica (creación de usuarios, cambios de configuración, envío de campañas) se registra con un hash SHA-256 que depende del registro anterior. Si alguien modifica o elimina un log, la cadena se rompe y el sistema lo detecta al instante. Es una garantía criptográfica de integridad, no solo un log tradicional.
+            Sí. Implementamos cifrado en tránsito y en reposo, aislamiento completo de datos por cliente y un sistema de auditoría criptográfico que garantiza que ningún registro pueda ser alterado sin ser detectado. Todos los datos se almacenan en infraestructura cloud con certificaciones de seguridad. Estamos alineados con estándares GDPR y SOC 2.
           </div>
         </div>
       </details>
