@@ -1,0 +1,60 @@
+name: Deploy Astro Landing Page
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'landing/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: landing/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd landing
+          npm ci
+
+      - name: Build Astro site
+        run: |
+          cd landing
+          npm run build
+
+      # ==========================================
+      # OPCIÓN A: Despliegue en Cloudflare Pages (Recomendado)
+      # ==========================================
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: 'difunde-landing' # Cambiar por tu nombre de proyecto en Cloudflare
+          directory: 'landing/dist'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # ==========================================
+      # OPCIÓN B (Alternativa): Despliegue en Servidor Propio (VPS vía SSH / rsync)
+      # Para usar esta opción, descomenta los siguientes pasos y comenta la opción A.
+      # Asegúrate de configurar los secretos correspondientes en GitHub (Settings > Secrets and variables > Actions)
+      # ==========================================
+      # - name: Deploy to VPS via SSH / rsync
+      #   uses: easingthemes/ssh-deploy@main
+      #   with:
+      #     SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+      #     ARGS: "-rlgoDzvc --delete"
+      #     SOURCE: "landing/dist/"
+      #     REMOTE_HOST: ${{ secrets.VPS_HOST }}      # ej: difunde.co o IP del servidor
+      #     REMOTE_USER: ${{ secrets.VPS_USER }}      # ej: root o ubuntu
+      #     TARGET: ${{ secrets.VPS_TARGET_DIR }}    # ej: /var/www/difunde.co/public_html
