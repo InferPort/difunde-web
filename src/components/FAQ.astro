@@ -1,6 +1,44 @@
 ---
-
+const preguntas = [
+  {
+    question: "¿Necesito tener una cuenta de WhatsApp Business?",
+    answer: "Sí. Difunde se conecta directamente con la API oficial de Meta (WhatsApp Business API). Necesitas un número de teléfono verificado y un Business Account de Meta. Te guiamos en todo el proceso de configuración."
+  },
+  {
+    question: "¿Puedo usar Difunde solo para Email?",
+    answer: "Sí. Puedes usar solo WhatsApp, solo Email, o ambos. Cada canal se configura de forma independiente. Las automatizaciones y campañas multicanal son opcionales."
+  },
+  {
+    question: "¿Cómo funciona el multi-tenancy?",
+    answer: "Cada empresa (tenant) tiene sus propios datos, contactos, plantillas y configuración completamente aislados. La plataforma detecta automáticamente qué tenant está accediendo mediante el subdominio. Ideal para agencias que gestionan múltiples marcas o empresas con varias unidades de negocio."
+  },
+  {
+    question: "¿Ofrecen período de prueba gratuito?",
+    answer: "Sí. Todos los planes incluyen 14 días de prueba gratuita sin necesidad de tarjeta de crédito. Durante la prueba tienes acceso completo a todas las funcionalidades del plan seleccionado."
+  },
+  {
+    question: "¿Puedo integrar Difunde con mi CRM?",
+    answer: "Sí. Los planes Pro y Enterprise incluyen acceso a la API REST con autenticación por API Key. Puedes enviar mensajes, consultar estados y gestionar conversaciones desde cualquier sistema externo. Para Enterprise ofrecemos integración personalizada."
+  },
+  {
+    question: "¿Qué es el hash chain de auditoría?",
+    answer: "Cada acción crítica (creación de usuarios, cambios de configuración, envío de campañas) se registra con un hash SHA-256 que depende del registro anterior. Si alguien modifica o elimina un log, la cadena se rompe y el sistema lo detecta al instante. Es una garantía criptográfica de integridad, no solo un log tradicional."
+  }
+];
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": preguntas.map(p => ({
+    "@type": "Question",
+    "name": p.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": p.answer
+    }
+  }))
+})} />
 
 <section id="faq" class="py-24 md:py-32 bg-surface">
   <div class="container">

@@ -2,6 +2,9 @@
 import '../styles/global.css';
 
 const { title, description } = Astro.props;
+const site = new URL(Astro.url.origin);
+const url = new URL(Astro.url.pathname, site);
+const ogImage = new URL('/og-image.png', site);
 ---
 
 <!doctype html>
@@ -9,13 +12,28 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+
+    <title>{title}</title>
+    <link rel="canonical" href={url} />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Difunde" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +41,34 @@ const { title, description } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Difunde",
+      "url": "https://difunde.co",
+      "logo": "https://difunde.co/favicon.svg",
+      "description": "Plataforma multicanal de mensajería empresarial. WhatsApp, Email y automatizaciones en un solo lugar.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "availableLanguage": ["es"]
+      }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Difunde",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "description": description,
+      "url": "https://difunde.co",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "offerCount": "3"
+      }
+    })} />
   </head>
   <body>
     <slot />
