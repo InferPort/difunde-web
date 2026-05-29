@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'landing/**'
   workflow_dispatch:
 
 jobs:
@@ -20,16 +18,14 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: landing/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: |
-          cd landing
           npm ci
 
       - name: Build Astro site
         run: |
-          cd landing
           npm run build
 
       # ==========================================
@@ -41,7 +37,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: 'difunde-landing' # Cambiar por tu nombre de proyecto en Cloudflare
-          directory: 'landing/dist'
+          directory: 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # ==========================================
@@ -54,7 +50,7 @@ jobs:
       #   with:
       #     SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
       #     ARGS: "-rlgoDzvc --delete"
-      #     SOURCE: "landing/dist/"
+      #     SOURCE: "dist/"
       #     REMOTE_HOST: ${{ secrets.VPS_HOST }}      # ej: difunde.co o IP del servidor
       #     REMOTE_USER: ${{ secrets.VPS_USER }}      # ej: root o ubuntu
       #     TARGET: ${{ secrets.VPS_TARGET_DIR }}    # ej: /var/www/difunde.co/public_html
