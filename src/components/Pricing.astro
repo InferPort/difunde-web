@@ -1,5 +1,5 @@
 ---
-
+const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2P80KDUfuT0FZOrbm1gDAgzuRmhjQqu';
 ---
 
 <section id="precios" class="py-24 md:py-32">
@@ -35,11 +35,19 @@
           <span class="text-4xl font-extrabold text-ink">$0</span>
           <span class="text-muted text-sm">USD/mes</span>
         </div>
-        <ul class="mt-8 space-y-3 flex-1">
-          <li class="flex items-start gap-2 text-sm text-ink">
-            <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Hasta 500 contactos</span>
-          </li>
+
+        <div class="mt-8 grid grid-cols-2 gap-3">
+          <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
+            <div class="text-xl font-extrabold text-ink">500</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">contactos</div>
+          </div>
+          <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
+            <div class="text-xl font-extrabold text-ink">500</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">mensajes / mes</div>
+          </div>
+        </div>
+
+        <ul class="mt-6 space-y-2.5 flex-1">
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             <span>1 canal WhatsApp o Email</span>
@@ -51,10 +59,6 @@
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             <span>Panel de estadísticas</span>
-          </li>
-          <li class="flex items-start gap-2 text-sm text-ink">
-            <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>500 mensajes / mes</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-muted">
             <svg class="w-4 h-4 text-muted mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -79,11 +83,19 @@
           <span class="text-4xl font-extrabold text-ink" data-price data-monthly="49" data-yearly="39">49</span>
           <span class="text-muted text-sm">USD/mes</span>
         </div>
-        <ul class="mt-8 space-y-3 flex-1">
-          <li class="flex items-start gap-2 text-sm text-ink">
-            <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Hasta 5,000 contactos</span>
-          </li>
+
+        <div class="mt-8 grid grid-cols-2 gap-3">
+          <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
+            <div class="text-xl font-extrabold text-ink">5,000</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">contactos</div>
+          </div>
+          <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
+            <div class="text-xl font-extrabold text-ink">5,000</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">mensajes / mes</div>
+          </div>
+        </div>
+
+        <ul class="mt-6 space-y-2.5 flex-1">
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             <span>WhatsApp + Email (ambos canales)</span>
@@ -100,17 +112,13 @@
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             <span>Auditoría con hash chain</span>
           </li>
-          <li class="flex items-start gap-2 text-sm text-ink">
-            <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>5,000 mensajes / mes incluidos</span>
-          </li>
         </ul>
-        <a
-          href="https://dashboard.difunde.co/auth"
-          class="btn-press mt-8 inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-brand-500 text-white text-sm font-semibold no-underline hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/20 text-center"
+        <button
+          class="btn-press mt-8 inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-brand-500 text-white text-sm font-semibold no-underline hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/20 text-center w-full"
+          data-wompi-pro
         >
           Elegir Profesional
-        </a>
+        </button>
       </article>
 
       <article class="pricing-card rounded-2xl border border-[oklch(0.92_0.003_0)] bg-surface p-8 flex flex-col card-hover reveal-delay-2">
@@ -120,11 +128,19 @@
           <span class="text-4xl font-extrabold text-ink">$149</span>
           <span class="text-muted text-sm">USD/mes</span>
         </div>
-        <ul class="mt-8 space-y-3 flex-1">
-          <li class="flex items-start gap-2 text-sm text-ink">
-            <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Contactos ilimitados</span>
-          </li>
+
+        <div class="mt-8 grid grid-cols-2 gap-3">
+          <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
+            <div class="text-xl font-extrabold text-ink">∞</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">contactos</div>
+          </div>
+          <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
+            <div class="text-xl font-extrabold text-ink">∞</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">mensajes</div>
+          </div>
+        </div>
+
+        <ul class="mt-6 space-y-2.5 flex-1">
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             <span>Multi-tenancy con aislamiento</span>
@@ -158,17 +174,19 @@
 </section>
 
 <script>
+  const WOMPI_PUBLIC_KEY = '${WOMPI_PUBLIC_KEY}';
+  const REDIRECT_URL = 'https://dashboard.difunde.co/auth';
+
   const toggle = document.querySelector('[data-toggle]');
   const knob = document.querySelector('[data-knob]');
   const prices = document.querySelectorAll('[data-price]');
+  const wompiBtn = document.querySelector('[data-wompi-pro]');
 
   if (toggle && knob && prices.length) {
     let isAnnual = false;
-
     toggle.addEventListener('click', () => {
       isAnnual = !isAnnual;
       knob.style.transform = isAnnual ? 'translateX(24px)' : 'translateX(0)';
-
       prices.forEach((el) => {
         const monthly = el.dataset.monthly;
         const yearly = el.dataset.yearly;
@@ -176,6 +194,44 @@
           el.textContent = isAnnual ? yearly : monthly;
         }
       });
+    });
+  }
+
+  if (wompiBtn) {
+    wompiBtn.addEventListener('click', async () => {
+      try {
+        wompiBtn.disabled = true;
+        wompiBtn.textContent = 'Conectando con Wompi...';
+
+        if (typeof WidgetCheckout === 'undefined') {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://checkout.wompi.co/widget.js';
+            script.async = true;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
+
+        const reference = 'dif_pro_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
+
+        const widget = new WidgetCheckout({
+          currency: 'USD',
+          amountInCents: 4900,
+          reference: reference,
+          publicKey: WOMPI_PUBLIC_KEY,
+          redirectUrl: REDIRECT_URL + '?plan=profesional&wompi_ref=' + reference,
+          taxInCents: 0,
+        });
+
+        widget.open();
+      } catch (err) {
+        console.error('Wompi error:', err);
+        wompiBtn.disabled = false;
+        wompiBtn.textContent = 'Elegir Profesional';
+        alert('Hubo un error al conectar con la pasarela de pago. Intentá de nuevo.');
+      }
     });
   }
 </script>
