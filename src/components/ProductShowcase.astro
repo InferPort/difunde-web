@@ -1,0 +1,226 @@
+---
+/**
+ * Mockups del panel con datos sintéticos ya redactados.
+ * No usa datos reales de clientes: teléfonos enmascarados, nombres genéricos, montos de demo.
+ */
+const navItems = [
+  { label: 'Dashboard', active: false },
+  { label: 'Inbox', active: false },
+  { label: 'Plantillas', active: false },
+  { label: 'Campañas', active: true },
+  { label: 'Mensajes', active: false },
+  { label: 'Automatizaciones', active: false },
+];
+
+const stats = [
+  { label: 'Mensajes hoy', value: '1.284', sub: '+12% vs ayer', tone: 'text-sky-400' },
+  { label: 'En ejecución', value: '3', sub: 'Campañas activas', tone: 'text-amber-400' },
+  { label: 'Tasa entrega', value: '97.4%', sub: 'esta semana', tone: 'text-emerald-400' },
+  { label: 'Respuestas', value: '186', sub: '14.5% conversión', tone: 'text-indigo-400' },
+];
+
+const campaigns = [
+  { name: 'Aviso de facturación · Mar', status: 'Enviando', progress: 72, sent: '3.6k / 5.0k' },
+  { name: 'Recordatorio cita · Demo', status: 'Pausada', progress: 41, sent: '820 / 2.0k' },
+  { name: 'Onboarding bienvenida', status: 'Completada', progress: 100, sent: '1.2k / 1.2k' },
+];
+
+const chats = [
+  { name: 'Cliente ••••', phone: '+57 3•• ••• 42••', preview: 'Gracias, ya realicé el pago…', time: '2 min', unread: true },
+  { name: 'Empresa ••••', phone: '+57 3•• ••• 18••', preview: '¿Pueden reenviar la factura?', time: '14 min', unread: true },
+  { name: 'Contacto ••••', phone: '+57 3•• ••• 90••', preview: 'Perfecto, quedamos así.', time: '1 h', unread: false },
+];
+
+const messages = [
+  { from: 'them', text: 'Hola, me llegó el aviso de pago. ¿Sigue vigente?', time: '10:42' },
+  { from: 'us', text: 'Hola. Sí, el enlace es válido hasta el viernes. ¿Necesitás ayuda?', time: '10:43' },
+  { from: 'them', text: 'Gracias, ya realicé el pago. Adjunto el comprobante.', time: '10:45' },
+  { from: 'us', text: 'Recibido. En unos minutos confirmamos en el sistema.', time: '10:46' },
+];
+
+const flowNodes = [
+  { title: 'Inicio', sub: 'Email entrante', color: 'border-indigo-500/40 bg-indigo-950/40 text-indigo-300' },
+  { title: 'Condición', sub: 'Asunto contiene “factura”', color: 'border-amber-500/40 bg-amber-950/40 text-amber-300' },
+  { title: 'WhatsApp', sub: 'Plantilla: recordatorio_pago', color: 'border-emerald-500/40 bg-emerald-950/40 text-emerald-300' },
+  { title: 'Fin', sub: 'Registrar en log', color: 'border-zinc-600/40 bg-zinc-900/60 text-zinc-400' },
+];
+---
+
+<section id="producto" class="py-24 md:py-32 bg-surface overflow-hidden">
+  <div class="container">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="text-xs font-semibold text-brand-500 uppercase tracking-widest mb-4">Producto</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-ink tracking-tight">
+        El panel con el que trabajás todos los días
+      </h2>
+      <p class="mt-4 text-muted text-lg">
+        Capturas ilustrativas con datos de demostración redactados (sin información real de clientes).
+      </p>
+    </div>
+
+    <!-- Screen 1: Dashboard -->
+    <div class="mt-16 reveal max-w-5xl mx-auto">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <h3 class="text-sm font-semibold text-ink">Dashboard y campañas</h3>
+        <span class="text-[10px] font-medium uppercase tracking-wider text-muted px-2 py-0.5 rounded-full bg-white border border-[oklch(0.90_0.005_0)]">Demo · datos redactados</span>
+      </div>
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-zinc-900/20 overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-2.5 border-b border-zinc-800 bg-zinc-900/80">
+          <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+          <span class="ml-3 text-[11px] text-zinc-500 font-mono">app.difunde.co · demo</span>
+        </div>
+        <div class="flex min-h-[320px] md:min-h-[380px]">
+          <aside class="hidden sm:flex w-44 shrink-0 flex-col border-r border-zinc-900 bg-zinc-950 p-3 gap-1">
+            <div class="flex items-center gap-2 px-2 py-2 mb-3">
+              <div class="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center text-[10px] font-bold text-white">D</div>
+              <span class="text-xs font-semibold text-zinc-100">difunde</span>
+            </div>
+            {navItems.map((item) => (
+              <div class={`px-2.5 py-1.5 rounded-md text-[11px] ${item.active ? 'bg-zinc-800 text-emerald-400 font-medium' : 'text-zinc-500'}`}>
+                {item.label}
+              </div>
+            ))}
+            <div class="mt-auto px-2 pt-4 border-t border-zinc-900">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-zinc-800 text-[9px] text-zinc-400 flex items-center justify-center font-semibold">DE</div>
+                <div>
+                  <div class="text-[10px] text-zinc-300 font-medium">Demo User</div>
+                  <div class="text-[9px] text-zinc-600">Profesional</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <div class="flex-1 p-4 md:p-6 space-y-4 min-w-0">
+            <div>
+              <div class="text-sm font-semibold text-zinc-100">Dashboard</div>
+              <div class="text-[11px] text-zinc-500">Resumen ejecutivo de operaciones</div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
+              {stats.map((s) => (
+                <div class="rounded-xl border border-zinc-800 bg-zinc-900/60 p-3">
+                  <div class={`text-[10px] font-medium ${s.tone}`}>{s.label}</div>
+                  <div class="mt-1 text-lg font-bold text-zinc-50 tracking-tight">{s.value}</div>
+                  <div class="text-[9px] text-zinc-500 mt-0.5">{s.sub}</div>
+                </div>
+              ))}
+            </div>
+            <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 overflow-hidden">
+              <div class="px-3 py-2 border-b border-zinc-800 flex items-center justify-between">
+                <span class="text-[11px] font-medium text-zinc-300">Campañas recientes</span>
+                <span class="text-[9px] text-zinc-600">CSV · plantillas Meta</span>
+              </div>
+              <div class="divide-y divide-zinc-800/80">
+                {campaigns.map((c) => (
+                  <div class="px-3 py-2.5 flex items-center gap-3">
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[11px] font-medium text-zinc-200 truncate">{c.name}</div>
+                      <div class="mt-1.5 h-1 rounded-full bg-zinc-800 overflow-hidden">
+                        <div class="h-full rounded-full bg-emerald-500/80" style={`width: ${c.progress}%`}></div>
+                      </div>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="text-[9px] text-zinc-500">{c.sent}</div>
+                      <div class={`text-[10px] font-medium mt-0.5 ${c.status === 'Completada' ? 'text-emerald-400' : c.status === 'Pausada' ? 'text-amber-400' : 'text-sky-400'}`}>{c.status}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 2: Chat + Screen 3: Flows -->
+    <div class="mt-8 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div class="reveal reveal-delay-1">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <h3 class="text-sm font-semibold text-ink">Chat en tiempo real</h3>
+          <span class="text-[10px] text-muted">WebSockets</span>
+        </div>
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950 shadow-xl overflow-hidden h-[360px] flex flex-col">
+          <div class="flex items-center gap-2 px-3 py-2 border-b border-zinc-800 bg-zinc-900/80">
+            <span class="w-2 h-2 rounded-full bg-zinc-700"></span>
+            <span class="w-2 h-2 rounded-full bg-zinc-700"></span>
+            <span class="text-[10px] text-zinc-500 ml-2 font-mono">Inbox · demo</span>
+          </div>
+          <div class="flex flex-1 min-h-0">
+            <div class="w-[38%] border-r border-zinc-900 overflow-hidden flex flex-col">
+              {chats.map((c, i) => (
+                <div class={`px-2.5 py-2 border-b border-zinc-900/80 ${i === 0 ? 'bg-zinc-900/70' : ''}`}>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[10px] font-semibold text-zinc-200 truncate">{c.name}</span>
+                    <span class="text-[8px] text-zinc-600 shrink-0">{c.time}</span>
+                  </div>
+                  <div class="text-[8px] text-zinc-600 font-mono mt-0.5">{c.phone}</div>
+                  <div class={`text-[9px] mt-0.5 truncate ${c.unread ? 'text-zinc-300' : 'text-zinc-600'}`}>{c.preview}</div>
+                </div>
+              ))}
+            </div>
+            <div class="flex-1 flex flex-col min-w-0">
+              <div class="px-3 py-2 border-b border-zinc-900">
+                <div class="text-[11px] font-medium text-zinc-200">Cliente ••••</div>
+                <div class="text-[8px] text-zinc-600 font-mono">+57 3•• ••• 42•• · entregado ✓✓</div>
+              </div>
+              <div class="flex-1 p-3 space-y-2 overflow-hidden">
+                {messages.map((m) => (
+                  <div class={`flex ${m.from === 'us' ? 'justify-end' : 'justify-start'}`}>
+                    <div class={`max-w-[85%] rounded-xl px-2.5 py-1.5 text-[10px] leading-snug ${m.from === 'us' ? 'bg-emerald-600/90 text-white rounded-br-sm' : 'bg-zinc-800 text-zinc-200 rounded-bl-sm'}`}>
+                      {m.text}
+                      <div class={`text-[8px] mt-1 ${m.from === 'us' ? 'text-emerald-100/70' : 'text-zinc-500'}`}>{m.time}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div class="px-3 py-2 border-t border-zinc-900">
+                <div class="h-7 rounded-lg bg-zinc-900 border border-zinc-800 px-2 flex items-center text-[9px] text-zinc-600">Escribí un mensaje…</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <h3 class="text-sm font-semibold text-ink">Automatizaciones visuales</h3>
+          <span class="text-[10px] text-muted">Pro · Enterprise</span>
+        </div>
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950 shadow-xl overflow-hidden h-[360px] flex flex-col">
+          <div class="flex items-center gap-2 px-3 py-2 border-b border-zinc-800 bg-zinc-900/80">
+            <span class="w-2 h-2 rounded-full bg-zinc-700"></span>
+            <span class="w-2 h-2 rounded-full bg-zinc-700"></span>
+            <span class="text-[10px] text-zinc-500 ml-2 font-mono">Flujos · demo</span>
+          </div>
+          <div class="flex-1 relative p-4 bg-[radial-gradient(circle_at_1px_1px,rgb(39_39_42)_1px,transparent_0)] [background-size:16px_16px]">
+            <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-transparent to-zinc-950/40 pointer-events-none"></div>
+            <div class="relative flex flex-col items-center gap-0 py-2">
+              {flowNodes.map((n, i) => (
+                <>
+                  <div class={`w-[85%] max-w-[220px] rounded-xl border px-3 py-2.5 ${n.color}`}>
+                    <div class="text-[10px] font-semibold">{n.title}</div>
+                    <div class="text-[9px] opacity-70 mt-0.5">{n.sub}</div>
+                  </div>
+                  {i < flowNodes.length - 1 && (
+                    <div class="w-px h-4 bg-zinc-700 relative">
+                      <div class="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rotate-45 border-r border-b border-zinc-600"></div>
+                    </div>
+                  )}
+                </>
+              ))}
+            </div>
+          </div>
+          <div class="px-3 py-2 border-t border-zinc-900 flex items-center justify-between">
+            <span class="text-[9px] text-zinc-600">Email → condición → WhatsApp</span>
+            <span class="text-[9px] text-emerald-500/80 font-medium">Simulador listo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-6 text-center text-xs text-muted max-w-xl mx-auto">
+      Las pantallas son representaciones del producto con datos ficticios. Teléfonos, nombres y montos están enmascarados o inventados a propósito.
+    </p>
+  </div>
+</section>

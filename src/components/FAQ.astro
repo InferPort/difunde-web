@@ -2,27 +2,27 @@
 const preguntas = [
   {
     question: "¿Necesito tener una cuenta de WhatsApp Business?",
-    answer: "Sí. Difunde se conecta directamente con la API oficial de Meta (WhatsApp Business API). Necesitas un número de teléfono verificado y un Business Account de Meta. Te guiamos en todo el proceso de configuración."
+    answer: "Sí. Difunde se conecta directamente con la API oficial de Meta (WhatsApp Business API). Necesitas un número de teléfono verificado y un Business Account de Meta. Te guiamos en el proceso de configuración de tokens, Phone ID y WABA ID."
   },
   {
     question: "¿Puedo usar Difunde solo para Email?",
-    answer: "Sí. Puedes usar solo WhatsApp, solo Email, o ambos. Cada canal se configura de forma independiente. Las automatizaciones y campañas multicanal son opcionales."
+    answer: "El canal de email está disponible en los planes Profesional (1 cuenta) y Enterprise (hasta 5 cuentas). El plan Gratuito incluye solo WhatsApp. En los planes de pago puedes usar solo WhatsApp, solo Email, o ambos."
   },
   {
     question: "¿Cuánto tiempo toma empezar a usar Difunde?",
-    answer: "En menos de una hora puedes tener tu cuenta activa. El proceso de configuración inicial incluye la conexión con WhatsApp Business API (nosotros te guiamos paso a paso), la verificación de tu número de teléfono y la importación de tus primeros contactos. Para planes Enterprise, la implementación completa con integraciones personalizadas se realiza en días."
+    answer: "Crear la cuenta y el panel es inmediato. La conexión con WhatsApp Business API depende de la verificación de Meta (número, Business Manager y plantillas). Una vez configurados los tokens, puedes sincronizar plantillas, subir contactos y enviar tu primera campaña."
   },
   {
-    question: "¿Ofrecen período de prueba gratuito?",
-    answer: "Sí. Todos los planes incluyen 14 días de prueba gratuita sin necesidad de tarjeta de crédito. Durante la prueba tienes acceso completo a todas las funcionalidades del plan seleccionado."
+    question: "¿Ofrecen plan gratuito?",
+    answer: "Sí. El plan Gratuito te permite probar WhatsApp con hasta 100 contactos y 500 mensajes al mes, 5 plantillas y 2 campañas. No incluye email, API ni el editor visual de flujos. Cuando lo necesites, puedes pasar a Profesional o Enterprise desde el panel."
   },
   {
     question: "¿Puedo integrar Difunde con mi CRM?",
-    answer: "Sí. Los planes Profesional y Enterprise incluyen acceso a la API REST con autenticación por API Key. Puedes enviar mensajes, consultar estados y gestionar conversaciones desde cualquier sistema externo. Para Enterprise ofrecemos integración personalizada."
+    answer: "Sí. Los planes Profesional y Enterprise incluyen acceso a la API REST con autenticación por API Key (hasta 2 keys en Profesional; sin tope en Enterprise). Puedes enviar mensajes y plantillas desde sistemas externos. Enterprise además incluye webhooks salientes."
   },
   {
     question: "¿Mis datos están seguros en Difunde?",
-    answer: "Sí. Implementamos cifrado en tránsito y en reposo, aislamiento completo de datos por cliente y un sistema de auditoría criptográfico que garantiza que ningún registro pueda ser alterado sin ser detectado. Todos los datos se almacenan en infraestructura cloud con certificaciones de seguridad. Estamos alineados con estándares GDPR y SOC 2."
+    answer: "Sí. Cada empresa opera en un espacio aislado (multi-tenant). Las credenciales de email se cifran en reposo, el tráfico va por HTTPS y las acciones críticas se registran en auditoría (desde Profesional). En Enterprise, la auditoría usa hash chain criptográfico con retención de 365 días y SLA del 99.9%."
   }
 ];
 ---
@@ -50,89 +50,21 @@ const preguntas = [
     </div>
 
     <div class="mt-12 max-w-2xl mx-auto space-y-3">
-      <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal">
-        <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Necesito tener una cuenta de WhatsApp Business?
-          <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </summary>
-        <div>
-          <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            Sí. Difunde se conecta directamente con la API oficial de Meta (WhatsApp Business API). Necesitas un número de teléfono verificado y un Business Account de Meta. Te guiamos en todo el proceso de configuración.
+      {preguntas.map((p, i) => (
+        <details class={`group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal${i > 0 ? ` reveal-delay-${Math.min(i, 5)}` : ''}`}>
+          <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
+            {p.question}
+            <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300 shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div>
+            <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
+              {p.answer}
+            </div>
           </div>
-        </div>
-      </details>
-
-      <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal reveal-delay-1">
-        <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Puedo usar Difunde solo para Email?
-          <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </summary>
-        <div>
-          <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            Sí. Puedes usar solo WhatsApp, solo Email, o ambos. Cada canal se configura de forma independiente. Las automatizaciones y campañas multicanal son opcionales.
-          </div>
-        </div>
-      </details>
-
-      <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal reveal-delay-2">
-        <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Cuánto tiempo toma empezar a usar Difunde?
-          <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </summary>
-        <div>
-          <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            En menos de una hora puedes tener tu cuenta activa. El proceso de configuración inicial incluye la conexión con WhatsApp Business API (nosotros te guiamos paso a paso), la verificación de tu número de teléfono y la importación de tus primeros contactos. Para planes Enterprise, la implementación completa con integraciones personalizadas se realiza en días.
-          </div>
-        </div>
-      </details>
-
-      <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal reveal-delay-3">
-        <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Ofrecen período de prueba gratuito?
-          <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </summary>
-        <div>
-          <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            Sí. Todos los planes incluyen 14 días de prueba gratuita sin necesidad de tarjeta de crédito. Durante la prueba tienes acceso completo a todas las funcionalidades del plan seleccionado.
-          </div>
-        </div>
-      </details>
-
-      <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal reveal-delay-4">
-        <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Puedo integrar Difunde con mi CRM?
-          <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </summary>
-        <div>
-          <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            Sí. Los planes Pro y Enterprise incluyen acceso a la API REST con autenticación por API Key. Puedes enviar mensajes, consultar estados y gestionar conversaciones desde cualquier sistema externo. Para Enterprise ofrecemos integración personalizada.
-          </div>
-        </div>
-      </details>
-
-      <details class="group rounded-xl border border-[oklch(0.92_0.003_0)] bg-white overflow-hidden reveal reveal-delay-5">
-        <summary class="flex items-center justify-between px-5 py-4 text-sm font-semibold text-ink cursor-pointer list-none hover:bg-surface/50 transition-colors">
-          ¿Mis datos están seguros en Difunde?
-          <svg class="w-4 h-4 text-muted group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </summary>
-        <div>
-          <div class="px-5 pb-4 text-sm text-muted leading-relaxed">
-            Sí. Implementamos cifrado en tránsito y en reposo, aislamiento completo de datos por cliente y un sistema de auditoría criptográfico que garantiza que ningún registro pueda ser alterado sin ser detectado. Todos los datos se almacenan en infraestructura cloud con certificaciones de seguridad. Estamos alineados con estándares GDPR y SOC 2.
-          </div>
-        </div>
-      </details>
+        </details>
+      ))}
     </div>
   </div>
 </section>

@@ -10,27 +10,15 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
         Planes para cada etapa de tu empresa
       </h2>
       <p class="mt-4 text-muted text-lg">
-        Desde PyMEs hasta grandes volúmenes. Sin sorpresas.
+        Facturación mensual en USD. Los límites coinciden con lo que aplica la plataforma.
       </p>
     </div>
 
-    <div class="mt-12 flex items-center justify-center gap-3" id="pricing-toggle">
-      <span class="text-sm font-medium text-ink">Mensual</span>
-      <button
-        class="relative w-12 h-6 rounded-full bg-brand-200 cursor-pointer transition-colors hover:bg-brand-300"
-        data-toggle
-        aria-label="Cambiar a facturación anual"
-      >
-        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm transition-transform" data-knob></span>
-      </button>
-      <span class="text-sm font-medium text-muted">Anual</span>
-      <span class="ml-1 px-2 py-0.5 rounded-full bg-brand-100 text-brand-600 text-[10px] font-bold">Ahorra 20%</span>
-    </div>
-
-    <div class="mt-10 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <div class="mt-12 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <!-- Free: 100 contacts, 500 messages, 5 templates, 0 email, 2 campaigns, 1 user -->
       <article class="pricing-card rounded-2xl border border-[oklch(0.92_0.003_0)] bg-surface p-8 flex flex-col card-hover">
         <h3 class="text-lg font-bold text-ink">Gratuito</h3>
-        <p class="mt-1 text-sm text-muted">Para empezar sin costo</p>
+        <p class="mt-1 text-sm text-muted">Para explorar la plataforma</p>
         <div class="mt-6 flex items-baseline gap-1">
           <span class="text-4xl font-extrabold text-ink">$0</span>
           <span class="text-muted text-sm">USD/mes</span>
@@ -38,8 +26,8 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
 
         <div class="mt-8 grid grid-cols-2 gap-3">
           <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
-            <div class="text-xl font-extrabold text-ink">500</div>
-            <div class="text-[11px] text-muted font-medium mt-0.5">contactos</div>
+            <div class="text-xl font-extrabold text-ink">100</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">contactos / mes</div>
           </div>
           <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
             <div class="text-xl font-extrabold text-ink">500</div>
@@ -50,19 +38,23 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
         <ul class="mt-6 space-y-2.5 flex-1">
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>1 canal WhatsApp o Email</span>
+            <span>Canal WhatsApp Business</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Hasta 10 plantillas</span>
+            <span>Hasta 5 plantillas</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Panel de estadísticas</span>
+            <span>2 campañas / mes · 1 usuario</span>
+          </li>
+          <li class="flex items-start gap-2 text-sm text-ink">
+            <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>Panel de estadísticas y chat en vivo</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-muted">
             <svg class="w-4 h-4 text-muted mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            <span>Automatizaciones avanzadas</span>
+            <span>Email, API y editor visual de flujos</span>
           </li>
         </ul>
         <a
@@ -73,6 +65,7 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
         </a>
       </article>
 
+      <!-- Professional: 10k contacts, 5k messages, 25 templates, 1 email, 2 API keys -->
       <article class="pricing-card rounded-2xl border-2 border-brand-500 bg-surface p-8 flex flex-col relative card-hover reveal-delay-1">
         <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-brand-500 text-white text-[10px] font-bold uppercase tracking-wider">
           Más popular
@@ -80,14 +73,14 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
         <h3 class="text-lg font-bold text-ink">Profesional</h3>
         <p class="mt-1 text-sm text-muted">Para empresas en crecimiento</p>
         <div class="mt-6 flex items-baseline gap-1">
-          <span class="text-4xl font-extrabold text-ink" data-price data-monthly="49" data-yearly="39">49</span>
+          <span class="text-4xl font-extrabold text-ink">$49</span>
           <span class="text-muted text-sm">USD/mes</span>
         </div>
 
         <div class="mt-8 grid grid-cols-2 gap-3">
           <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
-            <div class="text-xl font-extrabold text-ink">5,000</div>
-            <div class="text-[11px] text-muted font-medium mt-0.5">contactos</div>
+            <div class="text-xl font-extrabold text-ink">10,000</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">contactos / mes</div>
           </div>
           <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
             <div class="text-xl font-extrabold text-ink">5,000</div>
@@ -98,22 +91,27 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
         <ul class="mt-6 space-y-2.5 flex-1">
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>WhatsApp + Email (ambos canales)</span>
+            <span>WhatsApp + Email (1 cuenta)</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Automatizaciones visuales ilimitadas</span>
+            <span>Editor visual de flujos y campañas de email</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>API Keys para integraciones</span>
+            <span>Hasta 25 plantillas · 20 campañas / mes</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Auditoría con hash chain</span>
+            <span>API Keys (hasta 2) y hasta 5 usuarios</span>
+          </li>
+          <li class="flex items-start gap-2 text-sm text-ink">
+            <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>Auditoría (30 días) y soporte por email</span>
           </li>
         </ul>
         <button
+          type="button"
           class="btn-press mt-8 inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-brand-500 text-white text-sm font-semibold no-underline hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/20 text-center w-full"
           data-wompi-pro
         >
@@ -121,6 +119,7 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
         </button>
       </article>
 
+      <!-- Enterprise: 100k contacts, 50k messages, multi-tenant, hash chain, SLA 99.9 -->
       <article class="pricing-card rounded-2xl border border-[oklch(0.92_0.003_0)] bg-surface p-8 flex flex-col card-hover reveal-delay-2">
         <h3 class="text-lg font-bold text-ink">Enterprise</h3>
         <p class="mt-1 text-sm text-muted">Para grandes volúmenes</p>
@@ -131,71 +130,55 @@ const WOMPI_PUBLIC_KEY = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || 'pub_test_z2
 
         <div class="mt-8 grid grid-cols-2 gap-3">
           <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
-            <div class="text-xl font-extrabold text-ink">∞</div>
-            <div class="text-[11px] text-muted font-medium mt-0.5">contactos</div>
+            <div class="text-xl font-extrabold text-ink">100,000</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">contactos / mes</div>
           </div>
           <div class="text-center p-2.5 rounded-xl bg-brand-50/50 border border-brand-100/50">
-            <div class="text-xl font-extrabold text-ink">∞</div>
-            <div class="text-[11px] text-muted font-medium mt-0.5">mensajes</div>
+            <div class="text-xl font-extrabold text-ink">50,000</div>
+            <div class="text-[11px] text-muted font-medium mt-0.5">mensajes / mes</div>
           </div>
         </div>
 
         <ul class="mt-6 space-y-2.5 flex-1">
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Multi-tenancy con aislamiento</span>
+            <span>Todo lo de Profesional, sin tope de plantillas ni usuarios</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>SLA de disponibilidad 99.9%</span>
+            <span>Hasta 5 cuentas de email y webhooks salientes</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>On-premise / nube privada</span>
+            <span>Multi-tenancy con aislamiento de datos</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Gerente de cuenta dedicado</span>
+            <span>Auditoría con hash chain (365 días)</span>
           </li>
           <li class="flex items-start gap-2 text-sm text-ink">
             <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Integración personalizada</span>
+            <span>SLA 99.9% y soporte dedicado</span>
           </li>
         </ul>
         <a
-          href="https://dashboard.difunde.co/contacto"
+          href="https://dashboard.difunde.co/auth?plan=enterprise"
           class="btn-press mt-8 inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-accent-300 text-accent-600 text-sm font-semibold no-underline hover:bg-accent-50 transition-colors text-center"
         >
-          Cotizar
+          Empezar Enterprise
         </a>
       </article>
     </div>
+
+    <p class="mt-8 text-center text-xs text-muted max-w-2xl mx-auto">
+      Los límites de mensajes y contactos son mensuales. WhatsApp cobra por conversación según tarifas de Meta, independientes del plan de Difunde.
+    </p>
   </div>
 </section>
 
-<script>
-  const WOMPI_PUBLIC_KEY = '${WOMPI_PUBLIC_KEY}';
+<script define:vars={{ WOMPI_PUBLIC_KEY }}>
   const REDIRECT_URL = 'https://dashboard.difunde.co/auth';
-
-  const toggle = document.querySelector('[data-toggle]');
-  const knob = document.querySelector('[data-knob]');
-  const prices = document.querySelectorAll('[data-price]');
   const wompiBtn = document.querySelector('[data-wompi-pro]');
-
-  if (toggle && knob && prices.length) {
-    let isAnnual = false;
-    toggle.addEventListener('click', () => {
-      isAnnual = !isAnnual;
-      knob.style.transform = isAnnual ? 'translateX(24px)' : 'translateX(0)';
-      prices.forEach((el) => {
-        const monthly = el.dataset.monthly;
-        const yearly = el.dataset.yearly;
-        if (monthly && yearly) {
-          el.textContent = isAnnual ? yearly : monthly;
-        }
-      });
-    });
-  }
 
   if (wompiBtn) {
     wompiBtn.addEventListener('click', async () => {

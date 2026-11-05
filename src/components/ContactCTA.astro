@@ -1,0 +1,39 @@
+---
+import { CONTACT_EMAIL, CONTACT_MAILTO, CONTACT_MAILTO_SUPPORT, DASHBOARD_URL } from '../lib/contact';
+---
+
+<section id="contacto" class="py-24 md:py-32 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-brand-50/40 via-white to-surface pointer-events-none"></div>
+  <div class="container relative z-10">
+    <div class="max-w-3xl mx-auto rounded-3xl border border-brand-200/60 bg-white p-10 md:p-14 text-center shadow-sm shadow-brand-500/5 reveal">
+      <div class="text-xs font-semibold text-brand-500 uppercase tracking-widest mb-4">Contacto</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-ink tracking-tight text-balance">
+        ¿Listo para comunicar mejor con tus clientes?
+      </h2>
+      <p class="mt-4 text-muted text-lg max-w-xl mx-auto">
+        Creá tu cuenta gratis o escribinos a
+        <a href={CONTACT_MAILTO} class="text-brand-600 font-semibold no-underline hover:underline">{CONTACT_EMAIL}</a>
+        para planes Enterprise, demos o soporte.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href={DASHBOARD_URL}
+          class="btn-press inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-500 text-white text-sm font-semibold no-underline hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/20 w-full sm:w-auto"
+        >
+          Crear cuenta gratis
+        </a>
+        <a
+          href={CONTACT_MAILTO_SUPPORT}
+          class="btn-press inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-[oklch(0.88_0.005_0)] bg-white text-ink text-sm font-semibold no-underline hover:bg-surface transition-colors w-full sm:w-auto"
+        >
+          Escribir a {CONTACT_EMAIL}
+        </a>
+      </div>
+
+      <p class="mt-6 text-xs text-muted">
+        Respondemos en horario laboral · Español
+      </p>
+    </div>
+  </div>
+</section>
